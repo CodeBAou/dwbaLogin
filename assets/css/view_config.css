@@ -1,0 +1,21 @@
+
+#dwbaLoginWP_config_form_form table {
+    display:flex;
+    border:0;
+}
+
+#dwbaLoginWP_config_form_form table tr{
+    margin-bottom:25px;
+}
+
+#dwbaLoginWP_config_form_form  table.dwbaLoginWP_table {
+    text-align:center;
+}
+
+#dwbaLoginWP_config_form_form  table.dwbaLoginWP_table td {
+    min-width:100px;
+}
+
+.dwbaLoginWP_config_data{
+    font-weight: bold;
+}
