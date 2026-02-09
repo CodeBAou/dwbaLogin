@@ -2,12 +2,17 @@
 /**
 * Plugin Name: dwbaLoginWP
 * Description: Un bloque para aplicar login y control de acceso a wordpress desde cualquier página.
-* Author: Dwba
+* Author: dwba.es
 * Author URI: 
-* Requires at least: 5.2
-* Requires PHP:      7.2
+* Version: 1.0.1
+* Requires at least: 6.9
+* Requires PHP:      8.2
 * slugn colisions  :   dwbaLoginWP_
 */
+
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
 
 //Dependencias
 $path_config = plugin_dir_path( __FILE__ ) . 'func/config.php';
@@ -26,15 +31,6 @@ if ( file_exists( $path_auth) ) {
   error_log( 'No se ha podido incluir func/auth.php' );
 }
 
-
-//ACTIVACION
-//register_activation_hook(__FILE__,'dwbaLoginWP_activar');
-
-//DESACTIVACIÓN
-//register_deactivation_hook(__FILE__,'dwbaLoginWP_desactivar');
-
-//REGISTRO CUSTOM API
-//add_action( 'rest_api_init', );
 
 //REGISTRO PAGINA CONFIGURACION MENU 
 add_action( 'admin_menu', 'dwbaLoginWP_RegisterMenu_Config' );

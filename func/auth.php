@@ -1,5 +1,9 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
+}
+
 function ExistSession(){
 	$user_id  = get_current_user_id();
     $sessions = WP_Session_Tokens::get_instance( $user_id ) -> get_all();
@@ -7,7 +11,7 @@ function ExistSession(){
 
 
 /**
- * Configura el acceso a las páginas por role
+* Configura el acceso a las páginas por role
 */
 function DwbaLoginWP_Login_Page_Acces($array_pages){
 
@@ -15,7 +19,7 @@ function DwbaLoginWP_Login_Page_Acces($array_pages){
 
     //Obtener la lista roles permitidos en la página
     global $post;
-   
+    
 
     //No existe el campo, por lo que la página no tiene ninguna restrincción aplicada
     if ( ! metadata_exists( 'post', $post->ID, 'dwba_role_acces_login')  ){
@@ -50,14 +54,8 @@ function DwbaLoginWP_Login_Page_Acces($array_pages){
         }else{
             //Hay coincidencias en roles, el usuario puede ver la página
             //echo "ROLES COINCIDEN";
-            exit;
+            $url = get_permalink( $post->ID );
+            error_log($url);
         }
-
-        
-       
-
     }
-
- 
-
 }

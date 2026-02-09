@@ -27,9 +27,11 @@
                 
                 $pages     = get_pages();
                 $roles     = wp_roles()->roles;
-              
+                $blog_id = get_option('page_for_posts');//id de la pagina de entradas
+
                     foreach( $pages as $page ){
-                         
+                            // se ignora el bucle si el id es igual al id de la pagina de blog...
+                            if($page->ID == $blog_id ) continue;
                         ?>
                         <tr>    
                             <td class="dwbaLoginWP_config_data"><?php echo $page->ID?></td>
